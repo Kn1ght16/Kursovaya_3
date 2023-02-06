@@ -1,4 +1,4 @@
-from func import open_json_file, sort_dict, get_executed, result_dict
+from utils.func import open_json_file, sort_dict, get_executed, result_dict
 
 
 def main():
@@ -6,7 +6,6 @@ def main():
     dict_sort = sort_dict(dict_json)
     dict_list = get_executed(dict_sort)
     print(result_dict(dict_list))
-
 
 if __name__ == "__main__":
     main()
