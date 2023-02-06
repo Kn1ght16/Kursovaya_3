@@ -7,5 +7,6 @@ def main():
     dict_list = get_executed(dict_sort)
     print(result_dict(dict_list))
 
+
 if __name__ == "__main__":
     main()

@@ -13,12 +13,18 @@ def open_json_file():
     return dict
 
 
-def sort_dict(dict):
+def sort_dict(sort_dict):
     """
-    Функция  сортирует список словарей по date
+    Функция  сортирует список словарей по date, при этом проверяет воходные данные и удаляет лишние
     :return: отсортированный список словарей
     """
-    sorted_dict = sorted(dict, key=lambda x: ['date'], reverse=True)
+    x = 0
+    for i in sort_dict:
+        if not 'date' in i:
+            sort_dict.pop(x)
+        else:
+            x = x + 1
+    sorted_dict = sorted(sort_dict, key=lambda k: k['date'], reverse=True)
     return sorted_dict
 
 
@@ -28,7 +34,7 @@ def get_executed(dict_list):
     :return: отфильтрованный список словарей
     """
     for dic in dict_list:
-        if (not 'state' in dic) or dic['state'].upper() != 'EXECUTED':
+        if dic['state'] != 'EXECUTED':
             dict_list.remove(dic)
     return dict_list
 
